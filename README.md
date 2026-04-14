@@ -83,4 +83,4 @@ data/
 
 ## Lisensi
 
-MIT
+Proyek ini menggunakan Lisensi MIT. Silakan lihat file [LICENSE](LICENSE) untuk informasi selengkapnya.
