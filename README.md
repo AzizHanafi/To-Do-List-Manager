@@ -1,42 +1,43 @@
 # TaskFlow
 
-A desktop to-do list application built with JavaFX. Clean, minimal UI inspired by Notion and Material Design 3 — with category filtering, priority levels, deadline tracking, and real-time search.
+Aplikasi to-do list desktop berbasis JavaFX. Tampilan bersih dan minimalis dengan Material Design 3<br>
+dilengkapi filter kategori, tingkat prioritas, pelacak tenggat waktu, dan pencarian real-time.
 
 ---
 
-## Features
+## Fitur
 
-- **Add, edit, delete** tasks with title, description, deadline, category, and priority
-- **Categories** — Kuliah, Kerja, Personal, Lainnya
-- **Priority levels** — Tinggi, Sedang, Rendah (with color coding)
-- **Filter** tasks by category or priority (or both at once)
-- **Search** across task title and description in real time
-- **Progress card** showing completion percentage and count
-- **Overdue indicator** for past-deadline tasks
-- **Collapsible sidebar** with smooth animation
-- **Persistent storage** — tasks saved to JSON automatically
+- **Tambah, edit, hapus** tugas dengan judul, deskripsi, tenggat waktu, kategori, dan prioritas
+- **Kategori** — Kuliah, Kerja, Personal, Lainnya
+- **Tingkat prioritas** — Tinggi, Sedang, Rendah (dengan kode warna)
+- **Filter** tugas berdasarkan kategori atau prioritas (atau keduanya sekaligus)
+- **Pencarian** di judul dan deskripsi tugas secara real-time
+- **Kartu progres** yang menampilkan persentase penyelesaian dan jumlah tugas
+- **Indikator keterlambatan** untuk tugas yang melewati tenggat waktu
+- **Sidebar lipat** dengan animasi halus
+- **Penyimpanan persisten** — tugas disimpan otomatis ke JSON
 
 ---
 
-## Tech Stack
+## Teknologi
 
 | | |
 |---|---|
-| Language | Java 21 |
-| UI Framework | JavaFX 21.0.2 |
+| Bahasa | Java 21 |
+| Framework UI | JavaFX 21.0.2 |
 | Build Tool | Maven 3.x |
-| JSON Library | Gson 2.10.1 |
+| Library JSON | Gson 2.10.1 |
 
 ---
 
-## Getting Started
+## Cara Memulai
 
-### Prerequisites
+### Prasyarat
 
-- JDK 21 or higher
+- JDK 21 atau lebih baru
 - Maven 3.6+
 
-### Run
+### Menjalankan Aplikasi
 
 ```bash
 mvn javafx:run
@@ -50,7 +51,7 @@ mvn clean package
 
 ---
 
-## Project Structure
+## Struktur Proyek
 
 ```
 src/
@@ -80,6 +81,6 @@ data/
 
 ---
 
-## License
+## Lisensi
 
 MIT
