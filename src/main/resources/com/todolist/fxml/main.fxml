@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.todolist.controller.MainController"
+      stylesheets="@../css/style.css"
+      styleClass="root-bg">
+
+    <!-- ════════════════════════════════════════════
+         SIDEBAR
+    ════════════════════════════════════════════ -->
+    <VBox fx:id="sidebar" styleClass="sidebar" prefWidth="250" minWidth="0">
+
+        <!-- Logo / Brand -->
+        <HBox styleClass="sidebar-header" alignment="CENTER_LEFT" spacing="10">
+            <padding><Insets top="17" right="16" bottom="17" left="18"/></padding>
+            <Label text="✓" styleClass="sidebar-logo-icon"/>
+            <Label text="TaskFlow" styleClass="sidebar-brand"/>
+        </HBox>
+
+        <!-- Navigation -->
+        <VBox styleClass="sidebar-nav" VBox.vgrow="ALWAYS" spacing="2">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+            <!-- All Tasks -->
+            <HBox fx:id="navAll" styleClass="nav-item nav-item-active"
+                  alignment="CENTER_LEFT" spacing="10" onMouseClicked="#onNavAll">
+                <padding><Insets top="9" right="12" bottom="9" left="12"/></padding>
+                <Label text="📋" styleClass="nav-icon"/>
+                <Label text="Semua Task" styleClass="nav-label" HBox.hgrow="ALWAYS"/>
+                <Label fx:id="countAll" text="0" styleClass="nav-badge"/>
+            </HBox>
+
+            <!-- ─── Kategori ─── -->
+            <Label text="KATEGORI" styleClass="nav-section-header"/>
+
+            <!-- Category Cards 2×2 Grid -->
+            <GridPane hgap="7" vgap="7" maxWidth="Infinity">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50"/>
+                    <ColumnConstraints percentWidth="50"/>
+                </columnConstraints>
+
+                <VBox fx:id="cardKuliah" styleClass="cat-card cat-card-kuliah"
+                      alignment="CENTER" spacing="5" maxWidth="Infinity"
+                      GridPane.columnIndex="0" GridPane.rowIndex="0"
+                      onMouseClicked="#onNavKuliah">
+                    <Label text="📚" styleClass="cat-card-icon"/>
+                    <Label text="Kuliah" styleClass="cat-card-name"/>
+                    <Label fx:id="countKuliah" text="0" styleClass="cat-card-count cat-count-blue"/>
+                </VBox>
+
+                <VBox fx:id="cardKerja" styleClass="cat-card cat-card-kerja"
+                      alignment="CENTER" spacing="5" maxWidth="Infinity"
+                      GridPane.columnIndex="1" GridPane.rowIndex="0"
+                      onMouseClicked="#onNavKerja">
+                    <Label text="💼" styleClass="cat-card-icon"/>
+                    <Label text="Kerja" styleClass="cat-card-name"/>
+                    <Label fx:id="countKerja" text="0" styleClass="cat-card-count cat-count-purple"/>
+                </VBox>
+
+                <VBox fx:id="cardPersonal" styleClass="cat-card cat-card-personal"
+                      alignment="CENTER" spacing="5" maxWidth="Infinity"
+                      GridPane.columnIndex="0" GridPane.rowIndex="1"
+                      onMouseClicked="#onNavPersonal">
+                    <Label text="🏠" styleClass="cat-card-icon"/>
+                    <Label text="Personal" styleClass="cat-card-name"/>
+                    <Label fx:id="countPersonal" text="0" styleClass="cat-card-count cat-count-amber"/>
+                </VBox>
+
+                <VBox fx:id="cardLainnya" styleClass="cat-card cat-card-lainnya"
+                      alignment="CENTER" spacing="5" maxWidth="Infinity"
+                      GridPane.columnIndex="1" GridPane.rowIndex="1"
+                      onMouseClicked="#onNavLainnya">
+                    <Label text="📌" styleClass="cat-card-icon"/>
+                    <Label text="Lainnya" styleClass="cat-card-name"/>
+                    <Label fx:id="countLainnya" text="0" styleClass="cat-card-count cat-count-gray"/>
+                </VBox>
+            </GridPane>
+
+            <!-- ─── Prioritas ─── -->
+            <Label text="PRIORITAS" styleClass="nav-section-header"/>
+
+            <!-- Priority Chips -->
+            <HBox spacing="6" maxWidth="Infinity">
+                <VBox fx:id="chipHigh" styleClass="prio-chip prio-chip-high"
+                      alignment="CENTER" spacing="3" HBox.hgrow="ALWAYS"
+                      onMouseClicked="#onNavHigh">
+                    <Label text="🔴" styleClass="prio-chip-icon"/>
+                    <Label text="Tinggi" styleClass="prio-chip-name"/>
+                    <Label fx:id="countHigh" text="0" styleClass="prio-chip-count prio-count-high"/>
+                </VBox>
+                <VBox fx:id="chipMedium" styleClass="prio-chip prio-chip-medium"
+                      alignment="CENTER" spacing="3" HBox.hgrow="ALWAYS"
+                      onMouseClicked="#onNavMedium">
+                    <Label text="🟡" styleClass="prio-chip-icon"/>
+                    <Label text="Sedang" styleClass="prio-chip-name"/>
+                    <Label fx:id="countMedium" text="0" styleClass="prio-chip-count prio-count-medium"/>
+                </VBox>
+                <VBox fx:id="chipLow" styleClass="prio-chip prio-chip-low"
+                      alignment="CENTER" spacing="3" HBox.hgrow="ALWAYS"
+                      onMouseClicked="#onNavLow">
+                    <Label text="🟢" styleClass="prio-chip-icon"/>
+                    <Label text="Rendah" styleClass="prio-chip-name"/>
+                    <Label fx:id="countLow" text="0" styleClass="prio-chip-count prio-count-low"/>
+                </VBox>
+            </HBox>
+
+        </VBox>
+    </VBox>
+
+    <!-- ════════════════════════════════════════════
+         MAIN CONTENT
+    ════════════════════════════════════════════ -->
+    <VBox HBox.hgrow="ALWAYS" styleClass="main-wrapper">
+
+        <!-- Top Bar: Hamburger · Search · Add -->
+        <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="12">
+            <padding><Insets top="11" right="24" bottom="11" left="14"/></padding>
+            <Button fx:id="hamburgerBtn" text="☰" styleClass="btn-hamburger"
+                    onAction="#toggleSidebar"/>
+            <Label fx:id="activeFilterLabel" text="" styleClass="topbar-filter-label"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="searchField"
+                       promptText="🔍  Cari task..."
+                       styleClass="search-input"
+                       prefWidth="220"
+                       onKeyReleased="#onSearch"/>
+            <Button fx:id="addBtn" text="＋  Tambah Task"
+                    styleClass="btn-primary"
+                    onAction="#openAddDialog"/>
+        </HBox>
+
+        <!-- Content -->
+        <VBox VBox.vgrow="ALWAYS" styleClass="content-area" spacing="20">
+            <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+
+            <!-- Progress Card -->
+            <VBox styleClass="progress-card" spacing="14">
+                <padding><Insets top="20" right="22" bottom="20" left="22"/></padding>
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="Progress Overview" styleClass="card-heading"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="progressCountLabel" text="0 / 0 task selesai"
+                           styleClass="progress-count"/>
+                </HBox>
+                <ProgressBar fx:id="progressBar" maxWidth="Infinity" progress="0"
+                             styleClass="task-progress-bar"/>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label fx:id="progressPercentLabel" text="0%" styleClass="progress-percent"/>
+                    <Label fx:id="progressDescLabel"
+                           text="Mulai dengan menambahkan task pertamamu!"
+                           styleClass="progress-desc"/>
+                </HBox>
+            </VBox>
+
+            <!-- Task List -->
+            <ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true" styleClass="task-scroll-pane">
+                <content>
+                    <VBox fx:id="taskListContainer" spacing="10" styleClass="task-list-wrap">
+                        <padding><Insets top="2" right="2" bottom="2" left="2"/></padding>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+        </VBox>
+    </VBox>
+</HBox>
