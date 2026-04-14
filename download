@@ -1,0 +1,56 @@
+# ========================
+# Maven build output
+# ========================
+target/
+
+# ========================
+# jpackage / distribusi exe
+# ========================
+dist/
+
+# ========================
+# Data runtime (file JSON user)
+# ========================
+data/
+
+# ========================
+# IntelliJ IDEA
+# ========================
+# File personal / auto-generated — jangan di-push
+.idea/workspace.xml
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/jarRepositories.xml
+.idea/tasks.xml
+.idea/shelf/
+.idea/httpRequests/
+.idea/.name
+*.iml
+
+# File IntelliJ yang BOLEH di-push (biar teman bisa langsung buka tanpa setup ulang):
+# .idea/.gitignore
+# .idea/misc.xml          ← versi SDK & language level
+# .idea/vcs.xml           ← Git VCS config
+# .idea/material_theme_project_new.xml  ← theme
+
+# ========================
+# OS
+# ========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ========================
+# VS Code
+# ========================
+.vscode/
+
+# ========================
+# Eclipse / NetBeans (jaga-jaga)
+# ========================
+.classpath
+.project
+.settings/
+nbproject/
+nbbuild/
+nbdist/
