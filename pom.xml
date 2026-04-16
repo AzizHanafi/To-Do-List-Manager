@@ -46,22 +46,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <!-- mvn javafx:run -->
-                    <mainClass>com.todolist/com.todolist.Main</mainClass>
-
-                    <!-- mvn javafx:jpackage — produces standalone app in dist/ -->
-                    <jpackageName>TaskFlow</jpackageName>
-                    <jpackageOutputDir>dist</jpackageOutputDir>
-                    <jpackageAppVersion>1.0.0</jpackageAppVersion>
-                    <jpackageVendor>TaskFlow Team</jpackageVendor>
-                    <!--
-                        app-image = folder berisi TaskFlow.exe + bundled JRE
-                        Tidak perlu WiX Toolset. Tinggal zip foldernya dan share.
-
-                        Ganti ke "exe" untuk installer Windows (butuh WiX Toolset terinstall).
-                        Download WiX: https://wixtoolset.org/
-                    -->
-                    <jpackageType>app-image</jpackageType>
+                    <mainClass>com.todolist.Main</mainClass>
                 </configuration>
             </plugin>
 
