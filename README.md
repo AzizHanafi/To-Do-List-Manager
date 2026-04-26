@@ -3,6 +3,8 @@
 Aplikasi to-do list desktop berbasis JavaFX. Tampilan bersih dan minimalis dengan Material Design 3<br>
 dilengkapi filter kategori, tingkat prioritas, pelacak tenggat waktu, dan pencarian real-time.
 
+![Preview](https://github.com/user-attachments/assets/7c19e547-6bc1-4757-bc3c-eb1d3b40e56b)
+
 ---
 
 ## Fitur
